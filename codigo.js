@@ -1,3 +1,5 @@
+alert("Bienvenido a Omen Party!");
+
 let cantidadPersonas = parseInt(prompt("Cantidad de personas:"));
 let i = 0;
 
