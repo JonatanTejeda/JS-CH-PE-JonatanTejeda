@@ -1,44 +1,41 @@
-function saludar(nombre) {
-  console.log(`¡Hola, ${nombre}! Bienvenido/a a Omen Party.`);
-}
-
-const mostrarMensaje = mensaje => {
-  console.log(mensaje);
+const carrito = [];
+const preciosEntradas = {
+  general: 3000,
+  vip: 6000,
+  'vip-bebida': 13000,
 };
 
-alert("Bienvenido a Omen Party!");
-
-let cantidadPersonas = parseInt(prompt("Cantidad de personas:"));
-let i = 0;
-
-while (i < cantidadPersonas) {
-  let nombre = prompt("Nombre:");
-  let edad;
-
-  while (true) {
-    edad = parseInt(prompt("Edad:"));
-
-    if (isNaN(edad) || edad <= 0) {
-      mostrarMensaje("Edad inválida. Por favor, ingresa un número válido.");
-    } else {
-      break;
-    }
+function agregarEntrada() {
+  const tipoEntrada = prompt("Ingresa el tipo de entrada (general, vip o vip-bebida):");
+  if (!tipoEntrada || !preciosEntradas[tipoEntrada]) {
+    alert("Tipo de entrada inválido. Inténtalo nuevamente.");
+    return;
   }
 
-  if (edad >= 18) {
-    mostrarMensaje(`${nombre}, tienes ${edad} años, eres mayor de edad, puedes pasar.`);
-    saludar(nombre);
-  } else if (edad >= 14 && edad <= 17) {
-    let acompañado = prompt("¿Estás acompañado de un adulto? (SI/NO):");
-    if (acompañado.toUpperCase() === "SI") {
-      mostrarMensaje(`${nombre}, tienes ${edad} años y estás acompañado, puedes pasar.`);
-      saludar(nombre);
-    } else {
-      mostrarMensaje(`${nombre}, tienes ${edad} años y necesitas estar acompañado para poder pasar.`);
-    }
-  } else {
-    mostrarMensaje(`${nombre}, tienes ${edad} años, eres menor de edad.`);
-  }
-
-  i++;
+  console.log(`Tipo de entrada: ${tipoEntrada}`);
+  carrito.push({ tipoEntrada, precio: preciosEntradas[tipoEntrada] });
+  console.log('Carrito actual:', carrito);
+  mostrarCarrito();
+  calcularTotal();
 }
+
+function mostrarCarrito() {
+  const carritoUl = document.getElementById('carrito');
+  carritoUl.innerHTML = '';
+  carrito.forEach((item, index) => {
+    const li = document.createElement('li');
+    const precioTexto = item.precio === 0 ? 'Gratis' : `$${item.precio.toFixed(2)}`;
+    li.textContent = `${item.tipoEntrada}: ${precioTexto}`;
+    carritoUl.appendChild(li);
+  });
+}
+
+function calcularTotal() {
+  const totalDiv = document.getElementById('total');
+  const total = carrito.reduce((sum, item) => sum + item.precio, 0);
+  console.log(`Total de la compra: $${total.toFixed(2)}`);
+  totalDiv.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+const botonAgregar = document.getElementById('agregar');
+botonAgregar.addEventListener('click', agregarEntrada);
