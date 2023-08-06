@@ -5,15 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>JavaScript CoderHouse</title>
+    <title>OMEN PARTY</title>
 </head>
 <body>
-    <H1> Omen Party!ツ</H1>
-    <div class="container">
-        <h2>Compra de Entradas</h1>
-        <button id="agregar">Agregar al Carrito</button>
-        <ul id="carrito"></ul>
-        <div id="total"></div>
+    
+    <h1>OMEN PARTY - BEBIDAS </h1>
+    
+    <main>
+        <div class="productos">
+            <div class="producto">
+                <img src="img/fernet1.webp" alt="Producto 1">
+                <p>1 Fernet 450ML + COCA 2,25L</p>
+                <p class="precio">$2400</p>
+                <button class="agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/fernet2.webp" alt="Producto 1">
+                <p>1 Fernet 750ML COCA  2,25L</p>
+                <p class="precio">$3250</p>
+                <button class="agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/fernet3.webp" alt="Producto 1">
+                <p>1 Fernet 750ML + 2 COCA  2,25L</p>
+                <p class="precio">$3900</p>
+                <button class="agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/fernet4.webp" alt="Producto 1">
+                <p>2 FERNET 750ML + 4 COCA  2,25L</p>
+                <p class="precio">$7650</p>
+                <button class="agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/fernetvino5.webp" alt="Producto 1">
+                <p>COMBO CORDOBES</p>
+                <p class="precio">$10700</p>
+                <button class="agregar">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="img/fernetsky6.webp" alt="Producto 1">
+                <p>COMBO EN LA PERA</p>
+                <p class="precio">$11400</p>
+                <button class="agregar">Agregar al Carrito</button>
+            </div>
+        </div>
+
+        <div class="cart-container">
+            <img src="./img/carrito-de-compras.png" alt="Carrito de Compras" id="cart-button">
+            <span class="item-count" id="item-count">0</span>
+    
+            <div class="carrito hidden">
+              <h2>Carrito de Compras</h2>
+              <ul id="lista-carrito"></ul>
+              <p class="total">Total: $<span id="total">0.00</span></p>
+              <button id="finalizar-compra">Finalizar Compra</button>
+            </div>
+          </div>
+    </main>
+
+
     <script src="./codigo.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+
 </body>
 </html>
+
+
