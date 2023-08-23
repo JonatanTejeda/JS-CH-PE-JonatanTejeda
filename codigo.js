@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalCarrito = document.getElementById("total");
   const botonFinalizarCompra = document.getElementById("finalizar-compra");
   const botonesAgregar = document.querySelectorAll(".agregar");
+
   let carrito = cargarCarritoDesdeLocalStorage();
 
   botonesAgregar.forEach((boton) => {
@@ -79,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function eliminarProducto(e) {
     const botonEliminar = e.target.closest(".eliminar");
     if (botonEliminar) {
-      const index = Array.from(listaCarrito.children).indexOf(botonEliminar.parentElement);
+      const index = Array.prototype.indexOf.call(listaCarrito.children, botonEliminar.parentElement);
       carrito.splice(index, 1);
       guardarCarritoEnLocalStorage();
       actualizarCarrito();

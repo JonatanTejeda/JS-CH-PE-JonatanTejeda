@@ -1,0 +1,6 @@
+[
+    {"id": "General", "nombre": "General", "precio": 7500},
+    {"id": "Vip", "nombre": "Vip", "precio": 13000},
+    {"id": "Vip+Remera", "nombre": "Vip+Remera", "precio": 17000},
+    {"id": "Vip+Remera+FirmaArtistas", "nombre": "Vip+Remera+FirmaArtistas", "precio": 20000}
+  ]
